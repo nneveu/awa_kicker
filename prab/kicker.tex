@@ -33,6 +33,9 @@
 \usepackage{siunitx}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{xcolor}
+\newcommand{\nrnote}[1]{\textsf{{\color{violet}{ NN note:}   #1 }}}
+\newcommand{\cjnote}[1]{\textsf{{\color{blue}{ CJ note:}   #1 }}}
 
 \begin{document}
 
@@ -56,11 +59,14 @@
 %\homepage[]{Your web page}
 %\thanks{}
 %\altaffiliation{}
-\author{L. Spentzouris}
-\affiliation{Illinois Institute of Technology, Chicago, IL, USA}
 
 \author{C. Jing}
 \affiliation{Euclid Techlabs, LLC, XX, USA}
+
+\author{L. Spentzouris}
+\affiliation{Illinois Institute of Technology, Chicago, IL, USA}
+
+
 
 \author{J. Power, S. Doran, J. Shao, E. Wisniewski , C. Whiteford}
 \affiliation{Argonne National Laboratory, Lemont, IL, USA}
@@ -90,6 +96,7 @@ to fabricate a kicker within specifications as quickly as possble.
 
 \section{Introduction}
 
+\nrnote{Remove staging description or add more intro here?}
 Independent staging requires two drive beam lines, with routing of bunch trains via a kicker and septum, 
 see Figure~\ref{fig:full-staging}. The kicker and septum must direct the beam to a dipole, 
 that will straighten the beam trajectory to travel parallel to the original beam path. 
