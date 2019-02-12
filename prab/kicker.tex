@@ -20,7 +20,7 @@
 % Choose pra, prb, prc, prd, pre, prl, prstab, prstper, or rmp for journal
 %  Add 'draft' option to mark overfull boxes with black boxes
 %  Add 'showkeys' option to make keywords appear
-\documentclass[aps,prl,preprint,groupedaddress]{revtex4-2}
+\documentclass[aps,prab,preprint,groupedaddress,linenumbers]{revtex4-2}
 %\documentclass[aps,prl,preprint,superscriptaddress]{revtex4-2}
 %\documentclass[aps,prl,reprint,groupedaddress]{revtex4-2}
 
@@ -29,6 +29,10 @@
 % BibTeX style file (bst file), so only uncomment the line
 % below if necessary.
 %\bibliographystyle{apsrev4-2}
+
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{booktabs}
 
 \begin{document}
 
@@ -72,10 +76,10 @@
 
 \begin{abstract}
 The Argonne Wakefield Accelerator Facility performs a wide range of R\&D for 
-future accelerators. 
+future accelerators...... add more here .....
 This kicker was designed for two beam acceleration experiments.
 Ease of fabrication was a strong motivation for several design choices.
-It was desired to leverage previous work by others, and available resources
+It was desired to leverage previous work done by others, and readily available parts
 to fabricate a kicker within specifications as quickly as possble.
 \end{abstract}
 
@@ -84,68 +88,7 @@ to fabricate a kicker within specifications as quickly as possble.
 
 \maketitle
 
-% body of paper here - Use proper section commands
-\section{}
-% Put \label in argument of \section for cross-referencing
-%\section{\label{}}
-\subsection{}
-\subsubsection{}
-
-% If in two-column mode, this environment will change to single-column
-% format so that long equations can be displayed. Use
-% sparingly.
-%\begin{widetext}
-% put long equation here
-%\end{widetext}
-
-% Use the figure* environment if the figure should span across the
-% entire page. There is no need to do explicit centering.
-% \begin{figure}
-% \includegraphics{}%
-% \caption{\label{}}
-% \end{figure}
-
-% Surround figure environment with turnpage environment for landscape
-% figure
-% \begin{turnpage}
-% \begin{figure}
-% \includegraphics{}%
-% \caption{\label{}}
-% \end{figure}
-% \end{turnpage}
-
-% Use the table* environment to get a full-width table in two-column
-% Add \usepackage{longtable} and the longtable (or longtable*}
-% environment for nicely formatted long tables. Or use the the [H]
-% placement option to break a long table (with less control than 
-% in longtable).
-% \begin{table}%[H] add [H] placement to break table across pages
-% \caption{\label{}}
-% \begin{ruledtabular}
-% \begin{tabular}{l, r, c, d, etc.}
-% Lines of table here ending with \\
-% \end{tabular}
-% \end{ruledtabular}
-% \end{table}
-
-% Surround table environment with turnpage environment for landscape
-% table
-% \begin{turnpage}
-% \begin{table}
-% \caption{\label{}}
-% \begin{ruledtabular}
-% \begin{tabular}{}
-% \end{tabular}
-% \end{ruledtabular}
-% \end{table}
-% \end{turnpage}
-
-% Specify following sections are appendices. Use \appendix* if there
-% only one appendix.
-%\appendix
-%\section{}
-
-\Section{Introduction}
+\section{Introduction}
 
 Independent staging requires two drive beam lines, with routing of bunch trains via a kicker and septum, 
 see Figure~\ref{fig:full-staging}. The kicker and septum must direct the beam to a dipole, 
@@ -160,11 +103,7 @@ This second independent beam line design has been completed.
 Installation and testing of the kicker has been done.  
 The remaining components have been specified, and several are now ready for installation (i.e. septum, quadrupoles, dipoles).
 \begin{figure}
-	\begin{center}
-		\begin{tikzpicture}[scale=\textwidth/35cm, text=black]
-		\input{full_staging.tex}
-		\end{tikzpicture}
-	\end{center}
+\includegraphics[width=0.5\textwidth]{full_staging}
 	\caption{The arrows indicate what direction the beams travels.
 		The guns are located at opposite ends of the bunker and 
 		the propagation direction of the beam lines are opposing.
@@ -207,7 +146,7 @@ Simulations relevant to the kicker design will be presented, and compared to bea
 The chosen optics design based on the optimization studies will then be presented.
 
 
-\Section{Kicker Design Theory} \label{theory}
+\section{Kicker Design Theory} \label{theory}
 
 A fast rise time kicker is needed to separate the 
 bunch trains supplied by the drive gun.  When the kicker is on, 
@@ -283,20 +222,7 @@ Using the definitions above, the total angle provided by the kicker is then:
 The expected deflection, or x offset after the kicker, can be calculated
 using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of deflection: 
 \begin{figure*}
-	\begin{center}		
-		\centering
-		\begin{tikzpicture}[scale=0.7]
-		\node (fig1) at (0,0)
-		{\includegraphics[width=0.75\textwidth]{xoffset_geometry}};
-		\node[fill=white, inner sep=2pt] (txt2) at (-2.25,7.5) {L};
-		\node[fill=white, inner sep=2pt] (txt2) at (-5,-4.5) {$\theta_k$};
-		\node[fill=white, inner sep=2pt] (txt2) at (-6.5,5.5) {$\Delta x$};
-		\node[fill=white, inner sep=2pt] (txt2) at (-6.5,0) {$x$};
-		\node[fill=white, inner sep=2pt] (txt2) at (-2,3) {Beam Direction};
-		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,-2) {$\rho$};
-		\node[fill=white, inner sep=2pt] (txt2) at (2.3,3.8) {$\theta_k$};
-		\end{tikzpicture}
-	\end{center} 
+\includegraphics[width=0.75\textwidth]{xoffset_geometry}
 	\caption{Simplified drawing of beam trajectory through the kicker.
 		Here L is the length of the kicker, $\Delta x$ is the beam offset at the exit of the kicker, 
 		$\rho$ is the bending radius, and $\theta_k$ is the kicker angle. }
@@ -324,17 +250,7 @@ Next mechanical constraints were considered. The two drive beam lines need to be
 by at least \SI{0.5}{m} so that magnets (quadrupoles and dipoles) can fit on each 
 beam line without competing for transverse space. 
 \begin{figure*}
-	\begin{center}		
-		\begin{tikzpicture}[scale=0.7]
-		\node (fig1) at (0,0)
-		{\includegraphics[width=1\textwidth]{tba_geometry}};
-		\node[fill=white, inner sep=2pt] (txt2) at (-5,1.3) {$\theta_k$};
-		\node[fill=white, inner sep=2pt] (txt2) at (0.2,0.3) {$\theta_s$};
-		\node[fill=white, inner sep=2pt] (txt2) at (5,2.5) {Beam Direction};
-		\node[fill=white, inner sep=2pt] (txt2) at (5.2,0) {0.5 m};
-		\node[fill=white, inner sep=2pt] (txt2) at (2,-1.5) {$\theta_d$};
-		\end{tikzpicture}
-	\end{center} 
+\includegraphics[width=0.5\textwidth]{tba_geometry}
 	\caption{Simplified drawing of the TBA layout. 
 		The angle provided by the kicker, $\theta_k$, plus the angle provided by the septum, $\theta_s$,
 		must be less than or equal to $20^\circ$.
@@ -368,7 +284,6 @@ A shorter drift would mean less divergence in the beam before it reaches the nex
 		\caption{Possible kicker parameters for a \SI{75}{MeV} beam,  
 			a pulsar voltage of $\pm$ \SI{35}{kV}, 
 			and kicker plate length of \SI{0.6}{m}.}\label{tab:kickparam}
-		\rowcolors{2}{blue!15}{white}   
 		\begin{tabular}{ccc}
 			\toprule
 			\toprule
@@ -393,15 +308,7 @@ matching solenoid at \SI{255}{A}, and quadrupoles nearly in a 1:2:1 configuratio
 These are not optimized running conditions, and give a good upper bound for how the beam will behave before tuning.
 An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table~\ref{tab:kickparam}. 
 \begin{figure}
-	\begin{center}		
-		\begin{tikzpicture}[scale=0.7]
-		\node (fig1) at (0,0)
-		{\includegraphics[width=0.48\textwidth]{scatter_kicker_entrance}%
-			\includegraphics[width=0.48\textwidth]{scatter_kicker_exit}};
-		\node[fill=white, inner sep=2pt] (txt2) at (6.2,-3.8) {X [mm]};
-		\node[fill=white, inner sep=2pt] (txt2) at (-5,-3.8) {X [mm]};
-		\end{tikzpicture}
-	\end{center} 
+\includegraphics[width=\textwidth]{scatter_kicker}
 	\caption{Simulation of the transverse size of a \SI{40}{nC} 
 		beam at the entrance and exit of proposed kicker configuration.}
 	\label{fig:beamsizekicker}
@@ -434,7 +341,6 @@ Therefore, it was decided to elongate the kicker plates to accommodate the large
 	\begin{center}
 		\caption{Mechanical constraints for TBA beam line.}
 		\label{tab:mechanical}
-		\rowcolors{2}{blue!10}{white}   
 		\begin{tabular}{lc}
 			\toprule
 			\toprule
@@ -509,7 +415,7 @@ The two estimates match within reason, see Figure~\ref{fig:beamtraj}.
 	\end{center}
 \end{figure}
 
-\Section{Preliminary Kicker Tests}
+\section{Preliminary Kicker Tests}
 
 After the design of the kicker was finalized, fabrication began at ANL.
 The copper plates and ceramic brackets were fabricated on site at the ANL shops.
@@ -520,17 +426,8 @@ out of vacuum AC high voltage test. Afterwards they also helped perform and
 analyze a Time Domain Reflectometer (TDR) measurement of the kicker plates
 to determine the impedance along the kicker plates, feedthroughs, and cables. 
 \begin{figure*}
-	\begin{center}		
-		\begin{tikzpicture}[scale=0.7]
-		\node (fig1) at (0,0)
-		{\includegraphics[width=1\textwidth]{kicker}};
-		\node[fill=white, inner sep=2pt] (txt2) at (-10,0) {Port 1};
-		\node[fill=white, inner sep=2pt] (txt2) at (-5, -5) {Port 3};
-		\node[fill=white, inner sep=2pt] (txt2) at (5.5,6) {Port 2};
-		\node[fill=white, inner sep=2pt] (txt2) at (10,1) {Port 4};
-		\end{tikzpicture}
-	\end{center} 
-	\caption{CAD drawing of AWA kicker design, courtesy of Scott Doran from AWA.
+\includegraphics[width=\textwidth]{kicker_CAD}
+	\caption{CAD drawing of AWA kicker design.
 		Ports are connected the HV cables purchased from FID GmbH. 
 		Power is supplied by a pulsar also fabricated by FID GmbH and borrowed from the APS Electronics group.}
 \end{figure*}\label{fig:AWAkicker}
@@ -552,7 +449,7 @@ to determine the impedance along the kicker plates, feedthroughs, and cables.
 \end{figure}
 \fi
 
-\Subsection{High Voltage Kicker Test}
+\subsection{High Voltage Kicker Test}
 Two HV tests were performed at the APS. This was done to ensure the electrical connection 
 between the feedthroughs and kicker plates were free of shorts. 
 The first test consisted of HV applied in increments to ports 3 and 4 on the kicker.  
@@ -562,7 +459,7 @@ There was no leakage current up to \SI{9}{kV} RMS, which was the maximum voltage
 Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in the APS Faraday cage.
 \begin{figure}%[h]
 	\begin{center}
-		\includegraphics[width=\textwidth]{kicker1}
+		\includegraphics[width=0.5\textwidth]{kicker1}
 		\caption{High voltage test cage at the APS. 
 			The kicker was grounded on one side and exposed to high voltage AC power on the other. 
 			The Faraday cage was closed during testing. }
@@ -571,7 +468,7 @@ Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in 
 \end{figure}
 
 
-\Subsection{Time Domain Reflectometer Test}
+\subsection{Time Domain Reflectometer Test}
 After the HV test was completed, a Time Domain Reflectometer (TDR) measurement was preformed at the APS~\cite{TDR}, 
 with the help of C.~Y.~Yao, A.~Brill, X.~Sun and C.~Jing.
 This technique measures reflections along a conductor and gives information about discontinuities in the line being measured. 
@@ -588,22 +485,20 @@ The only negative result is the reduced amount of voltage supplied to the plates
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{TDR_AWA_kicker}
-		
 		(a) TDR single mode measurements of the AWA kicker.
 	\end{center}
 	\begin{center}
 		\includegraphics[width=0.75\textwidth]{TDR_APS_kicker}
-		
 		(b) TDR single mode measurements of an APS kicker.
 		\caption{TDR measurements of the impedance of AWA and APS kickers, plotted by C.~Y.~Yao.
 			Single mode refers to the orientation of the measurement. 
 			Only one port of the kicker is driven and measured at a time. }\label{fig:TDR}		
 	\end{center}
-	
+
 \end{figure}
 
 
-\Section{Measurement of Beam Deflection}
+\section{Measurement of Beam Deflection}
 
 Once the kicker was installed, measurements were done to verify it worked as designed with beam.  
 The voltage was scanned to check for linearity of the beam offset with voltage.  
@@ -618,7 +513,6 @@ done to optimize for future TBA runs, see Table~\ref{tab:krunparam}.
 	\begin{center}
 		\caption{Beam line configuration when kicker was tested.}
 		\label{tab:krunparam}
-		\rowcolors{2}{blue!10}{white}   
 		\begin{tabular}{lc}
 			\toprule
 			\toprule
@@ -643,17 +537,7 @@ done to optimize for future TBA runs, see Table~\ref{tab:krunparam}.
 All accelerating cavities were operated at \SI{-20}{^\circ} off crest to minimize energy spread.
 A simplified experimental setup is shown in Figure~\ref{fig:kyag}.
 \begin{figure*}
-	\begin{center}		
-		\begin{tikzpicture}[scale=0.7]
-		\node (fig1) at (0,0)
-		{\includegraphics[width=0.5\textwidth]{kicker_yag}};
-		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,2) {Kicker};
-		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,-1.5) {\SI{1}{m}};
-		\node[fill=white, inner sep=2pt] (txt2) at (6.5,-0.75) {Beam Direction};
-		\node[fill=white, inner sep=2pt] (txt2) at (3,2) {YAG Screen};
-		\node[fill=white, inner sep=2pt] (txt2) at (1.5,-1.5) {\SI{0.28}{m}};
-		\end{tikzpicture}
-	\end{center} 
+\includegraphics[width=0.7\textwidth]{kicker_yag}
 	\caption{Simplified drawing of kicker and YAG screen where beam size and offset data 
 		was taken. This experimental setup was used to calculate 
 		the angle provided by the kicker for a \SI{30}{nC} beam at \SI{65}{MeV}.}
@@ -800,7 +684,7 @@ Note, these errors are not a major hurdle for TBA experiments, as they can
 be mitigated with precise control of the quadrupoles.
 
 
-\Section{TBA Beam Line}
+\section{TBA Beam Line}
 
 While the kicker and septum parameters were defined by the constraints discussed above, 
 the optics must be used to address the aperture limits further down stream.
@@ -831,7 +715,7 @@ Solutions were found that meet the requirements listed above.
 
 
 
-\Section{Summary}
+\section{Summary}
 
 Several design exercises took place to determine the TBA layout at the AWA. 
 A stripline kicker was designed using first principles and simulations. 
@@ -870,8 +754,10 @@ and that in turn will enable demonstration of fully independent staging for a tw
 % If you have acknowledgments, this puts in the proper section head.
 \begin{acknowledgments}
 We gratefully acknowledge the computing resources provided on Bebop, 
-a high-performance computing cluster operated by the Laboratory Computing Resource Center at Argonne National Laboratory.
-
+a high-performance computing cluster operated by the Laboratory Computing 
+Resource Center at Argonne National Laboratory.
+We would also like to thank the electronics group at the Advanced Photon Source. 
+This work would not have been possible without their help and guidance.
 \end{acknowledgments}
 
 % Create the reference section using BibTeX:
