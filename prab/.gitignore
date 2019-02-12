@@ -1,0 +1,11 @@
+*~
+*.bbl
+*.blg
+*.aux
+*.log
+*.synctex.gz
+*.log
+*.h5
+*.out
+*.error
+*.T7
