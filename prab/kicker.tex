@@ -1,0 +1,883 @@
+%% ****** Start of file apstemplate.tex ****** %
+%%
+%%
+%%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%%   Version 4.2a of REVTeX, January, 2015
+%%
+%%
+%%   Copyright (c) 2015 The American Physical Society.
+%%
+%%   See the REVTeX 4 README file for restrictions and more information.
+%%
+%
+% This is a template for producing manuscripts for use with REVTEX 4.2
+% Copy this file to another name and then work on that file.
+% That way, you always have this original template file to use.
+%
+% Group addresses by affiliation; use superscriptaddress for long
+% author lists, or if there are many overlapping affiliations.
+% For Phys. Rev. appearance, change preprint to twocolumn.
+% Choose pra, prb, prc, prd, pre, prl, prstab, prstper, or rmp for journal
+%  Add 'draft' option to mark overfull boxes with black boxes
+%  Add 'showkeys' option to make keywords appear
+\documentclass[aps,prl,preprint,groupedaddress]{revtex4-2}
+%\documentclass[aps,prl,preprint,superscriptaddress]{revtex4-2}
+%\documentclass[aps,prl,reprint,groupedaddress]{revtex4-2}
+
+% You should use BibTeX and apsrev.bst for references
+% Choosing a journal automatically selects the correct APS
+% BibTeX style file (bst file), so only uncomment the line
+% below if necessary.
+%\bibliographystyle{apsrev4-2}
+
+\begin{document}
+
+% Use the \preprint command to place your local institutional report
+% number in the upper righthand corner of the title page in preprint mode.
+% Multiple \preprint commands are allowed.
+% Use the 'preprintnumbers' class option to override journal defaults
+% to display numbers if necessary
+%\preprint{}
+
+%Title of paper
+\title{Development of a Fast Rise Time Kicker for the Argonne Wakefield Accelerator Facility}
+
+% \affiliation command applies to all authors since the last
+% \affiliation command. The \affiliation command should follow the
+% other information
+% \affiliation can be followed by \email, \homepage, \thanks as well.
+\author{N. Neveu}
+\affiliation{SLAC National Accelerator Laboratory, Menlo Park, CA, USA}
+%\email[]{ e-mail address}
+%\homepage[]{Your web page}
+%\thanks{}
+%\altaffiliation{}
+\author{L. Spentzouris}
+\affiliation{Illinois Institute of Technology, Chicago, IL, USA}
+
+\author{C. Jing}
+\affiliation{Euclid Techlabs, LLC, XX, USA}
+
+\author{J. Power, S. Doran, J. Shao, E. Wisniewski , C. Whiteford}
+\affiliation{Argonne National Laboratory, Lemont, IL, USA}
+
+%Collaboration name if desired (requires use of superscriptaddress
+%option in \documentclass). \noaffiliation is required (may also be
+%used with the \author command).
+%\collaboration can be followed by \email, \homepage, \thanks as well.
+%\collaboration{}
+%\noaffiliation
+
+\date{\today}
+
+\begin{abstract}
+The Argonne Wakefield Accelerator Facility performs a wide range of R\&D for 
+future accelerators. 
+This kicker was designed for two beam acceleration experiments.
+Ease of fabrication was a strong motivation for several design choices.
+It was desired to leverage previous work by others, and available resources
+to fabricate a kicker within specifications as quickly as possble.
+\end{abstract}
+
+% insert suggested keywords - APS authors don't need to do this
+%\keywords{}
+
+\maketitle
+
+% body of paper here - Use proper section commands
+\section{}
+% Put \label in argument of \section for cross-referencing
+%\section{\label{}}
+\subsection{}
+\subsubsection{}
+
+% If in two-column mode, this environment will change to single-column
+% format so that long equations can be displayed. Use
+% sparingly.
+%\begin{widetext}
+% put long equation here
+%\end{widetext}
+
+% Use the figure* environment if the figure should span across the
+% entire page. There is no need to do explicit centering.
+% \begin{figure}
+% \includegraphics{}%
+% \caption{\label{}}
+% \end{figure}
+
+% Surround figure environment with turnpage environment for landscape
+% figure
+% \begin{turnpage}
+% \begin{figure}
+% \includegraphics{}%
+% \caption{\label{}}
+% \end{figure}
+% \end{turnpage}
+
+% Use the table* environment to get a full-width table in two-column
+% Add \usepackage{longtable} and the longtable (or longtable*}
+% environment for nicely formatted long tables. Or use the the [H]
+% placement option to break a long table (with less control than 
+% in longtable).
+% \begin{table}%[H] add [H] placement to break table across pages
+% \caption{\label{}}
+% \begin{ruledtabular}
+% \begin{tabular}{l, r, c, d, etc.}
+% Lines of table here ending with \\
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+
+% Surround table environment with turnpage environment for landscape
+% table
+% \begin{turnpage}
+% \begin{table}
+% \caption{\label{}}
+% \begin{ruledtabular}
+% \begin{tabular}{}
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+% \end{turnpage}
+
+% Specify following sections are appendices. Use \appendix* if there
+% only one appendix.
+%\appendix
+%\section{}
+
+\Section{Introduction}
+
+Independent staging requires two drive beam lines, with routing of bunch trains via a kicker and septum, 
+see Figure~\ref{fig:full-staging}. The kicker and septum must direct the beam to a dipole, 
+that will straighten the beam trajectory to travel parallel to the original beam path. 
+In this configuration the two drive beam lines will be parallel to each other after the dipole.
+Several quadrupoles are required to control the beam size, and deliver the desired beam parameters
+at the small aperture of the PETS decelerating structure. 
+This includes a small transverse size of the beam to allow 100\% transmission, 
+and a small bunch length to maximize power extraction from the PETS.
+Spectrometer magnets are used to measure the energy of the beam at the end of the beam lines.
+This second independent beam line design has been completed. 
+Installation and testing of the kicker has been done.  
+The remaining components have been specified, and several are now ready for installation (i.e. septum, quadrupoles, dipoles).
+\begin{figure}
+	\begin{center}
+		\begin{tikzpicture}[scale=\textwidth/35cm, text=black]
+		\input{full_staging.tex}
+		\end{tikzpicture}
+	\end{center}
+	\caption{The arrows indicate what direction the beams travels.
+		The guns are located at opposite ends of the bunker and 
+		the propagation direction of the beam lines are opposing.
+		PETS stands for Power Extraction and Transfer Structure, and ACC stands for Accelerating structure. 
+		The subscript on each structure refers to which stage the structures belong to (first or second). 
+		The drive line has six accelerating cavities with a maximum beam energy of \SI{70}{MeV}. 
+		The witness line has one accelerating cavity with a maximum beam energy of \SI{15}{MeV}.}
+	\label{fig:full-staging}
+\end{figure}
+
+A kicker design from Indiana University (IU) was used as a base line to design a kicker specific to the
+requirements at the AWA. The gap and plate length had to be determined based on the beam energy, 
+readily available equipment, and mechanical constraints in the AWA tunnel. 
+After a design was set, the kicker was fabricated.
+Two vacuum tests were performed to verify the fabrication process was successful.
+The electronics group at the Advanced Photon Source (APS) provided equipment and helped perform these tests.
+The tests included a high voltage (HV) test and Time Domain Reflectometer (TDR) measurement.
+Both tests were intended to verify the electrical properties of the kicker were acceptable for operation at HV.
+After these tests, the kicker was installed and tested with low and high charge beams. 
+The provided angle was found to be linear with respect to the voltage of the pulser.  
+The angle was slightly lower than the simulation result, probably due to reflections at the
+connection between the cables and kicker plates. 
+The septum design was specified based on simulation work and the kicker angle.
+The magnet design was completed at the Institute of Modern Physics (IMP), 
+where it was also fabricated. 
+
+The beam line optics also had to be determined and optimized.
+The optics include four quadrupoles after the accelerating cavities, 
+two quadrupoles on the bent beam line, and three focusing quadrupoles
+before the PETS structure.
+A point to point matrix calculation was done to ensure that transport of the
+beam was possible through the desired kicker gap.  This was followed by an optimization 
+performed using the \verb|OPAL| code and a built-in genetic algorithm. 
+There were optimization results in several optics scenarios that can transport 
+the beam through the PETS with 100\% transmission.  
+
+This chapter will start with a discussion of the design considerations for the kicker modification for the AWA facility.  
+This is followed by a description of the hardware tests done before the kicker installation.  
+Simulations relevant to the kicker design will be presented, and compared to beam measurement results.  
+The chosen optics design based on the optimization studies will then be presented.
+
+
+\Section{Kicker Design Theory} \label{theory}
+
+A fast rise time kicker is needed to separate the 
+bunch trains supplied by the drive gun.  When the kicker is on, 
+bunches passing though it are deflected into an alternate beam line by the kicker field.
+The spacing between bunch trains is on the order of nanoseconds; 
+it must be long enough to allow the kicker to reach full field before the arrival of the second bunch train, 
+and also depends on the layout of the beam lines and laser timing.  
+The drive beam and the accelerated `witness' beam must be synchronized so that the 
+acceleration field is maximum when the witness beam arrives at the accelerating structure.
+Magnetic options for transverse bunch train separation, 
+such as a dipole, were disqualified due to their slow rise times 
+
+Borrowing from a successful neighbor, a design implemented by Indiana University (IU)~\cite{iukicker}
+was adapted to fit the TBA requirements at the AWA. Redesign required consideration
+of the length and gap between the kicker plates. Both are key parameters that determine 
+what angle the beam will be deflected. Longer plates result in the beam traveling 
+in the electromagnetic field for a longer time yielding a larger beam deflection angle. 
+A smaller gap increases the field intensity for a given voltage (similar to a parallel plate 
+capacitor), increasing the beam deflection angle. 
+
+
+The kicker is essentially a parallel plate waveguide. 
+A $\pm$\SI{30}{kV} power supply can be used to induce a maximum of \SI{60}{kV} potential difference 
+across the plates. Each plate will be terminated in a $50\,\Omega$ load.  
+The combination of the two plates will result in a static TEM mode 
+between the plates. The electric field, $E_x$, and magnetic field, $B_y$,
+can be derived from the voltage or current. The electric field, $E_x$, due to a potential, $V$, is: 
+\begin{equation}
+E_x=\frac{V}{h},
+\end{equation}
+where h is the gap height. From Maxwell's equations, it is known that the electric and magnetic 
+field are related by the speed of light, $c$, in the case of plane and TEM waves~\cite{pozar}. 
+The magnetic field induced between the plates: 
+\begin{equation}
+B_y=\frac{E_x}{c}.
+\label{Bv}
+\end{equation}
+The electrons are traveling at nearly the speed of light, $c$, and move through the kicker on a 
+trajectory perpendicular to the fields.  Plugging Equation~\ref{Bv} into the Lorentz force equation, 
+it is shown that the force exerted on a charge, $q$, 
+from the electric and magnetic fields of the TEM mode are equal: 
+\begin{equation}
+F=q\,(E_x+v\times B_y),
+\end{equation}
+\begin{equation}
+F = q \,\left(E_x+c\times \frac{E_x}{c}\right).
+\end{equation}
+
+Since the force due to the electric field is equal and oriented in the same direction as the force due to the magnetic field, 
+the total kick is twice that from either field alone.  
+The angle induced by electric and magnetic fields has been calculated in~\cite{iukicker, Wiedemann}
+and is rewritten in the following terms:  
+\begin{equation}
+\theta_E= \frac{V\,L}{h\,T},
+\end{equation}
+\begin{equation}
+\theta_B= \frac{B\,L}{B\rho},
+\end{equation}
+where L is the plate length, and $T$ is the kinetic energy of the beam. 
+Rigidity, or $B\rho$, is a common accelerator physics term that can be found in text such as Wiedemann~\cite{Wiedemann}. 
+It is a convenient way to relate the magnetic field and trajectory of an energetic beam traveling through that field:
+\begin{equation}
+B\rho=3.33564\,\,T\, \text{[GeV-Tesla]}.
+\end{equation} 
+For a constant magnetic field, as the beam energy increases, the angle decreases. 
+The beam is considered ``rigid'' at higher energies, 
+and requires stronger magnetic fields to achieve the same angle, or bending radius ($\rho$).
+
+Using the definitions above, the total angle provided by the kicker is then: 
+\begin{equation}
+\theta_k = \theta_{total}= \theta_E+\theta_B=2\theta_E=2\theta_B.
+\end{equation}
+The expected deflection, or x offset after the kicker, can be calculated
+using geometry in Figure~\ref{fig:kicker-geometry}, and the expected angle of deflection: 
+\begin{figure*}
+	\begin{center}		
+		\centering
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=0.75\textwidth]{xoffset_geometry}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-2.25,7.5) {L};
+		\node[fill=white, inner sep=2pt] (txt2) at (-5,-4.5) {$\theta_k$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-6.5,5.5) {$\Delta x$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-6.5,0) {$x$};
+		\node[fill=white, inner sep=2pt] (txt2) at (-2,3) {Beam Direction};
+		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,-2) {$\rho$};
+		\node[fill=white, inner sep=2pt] (txt2) at (2.3,3.8) {$\theta_k$};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Simplified drawing of beam trajectory through the kicker.
+		Here L is the length of the kicker, $\Delta x$ is the beam offset at the exit of the kicker, 
+		$\rho$ is the bending radius, and $\theta_k$ is the kicker angle. }
+	\label{fig:kicker-geometry}
+\end{figure*}
+\begin{equation}
+\rho = \Delta x + x \, ,
+\end{equation}
+\begin{equation}
+\Delta x = \rho - \rho \cos \theta_k \, ,
+\end{equation}
+\begin{equation}
+\triangle x = \left(1-\cos\theta_{k}\right)\rho \, ,
+\label{eq:kx}
+\end{equation}
+where $\rho$, is the bending radius, $\Delta x$ is the beam offset at the exit of the kicker, 
+and $\theta_{k}$ was is the total angle provided by the kicker. 
+
+From these equations, design parameters gap height, length of the plates, and 
+the kinetic energy of the beam are related. Next, further beam line considerations were included 
+to narrow down what angle the kicker needed to supply. 
+The largest drive beam energy achievable at the AWA is \SI{75}{MeV}. 
+Therefore the kinetic energy of the beam, $T$, was set as a constant.
+Next mechanical constraints were considered. The two drive beam lines need to be separated
+by at least \SI{0.5}{m} so that magnets (quadrupoles and dipoles) can fit on each 
+beam line without competing for transverse space. 
+\begin{figure*}
+	\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=1\textwidth]{tba_geometry}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-5,1.3) {$\theta_k$};
+		\node[fill=white, inner sep=2pt] (txt2) at (0.2,0.3) {$\theta_s$};
+		\node[fill=white, inner sep=2pt] (txt2) at (5,2.5) {Beam Direction};
+		\node[fill=white, inner sep=2pt] (txt2) at (5.2,0) {0.5 m};
+		\node[fill=white, inner sep=2pt] (txt2) at (2,-1.5) {$\theta_d$};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Simplified drawing of the TBA layout. 
+		The angle provided by the kicker, $\theta_k$, plus the angle provided by the septum, $\theta_s$,
+		must be less than or equal to $20^\circ$.
+		The two beam lines must also be at least \SI{0.5}{m} apart.}\label{fig:triangle}
+\end{figure*}
+
+Using geometry as shown in Figure~\ref{fig:triangle}, an upper limit on the 
+combined kicker and septum angle ($\theta_k+\theta_s$) is based on the existing dipoles at the AWA.
+The maximum dipole bend angle, $\theta_d$, is $20^\circ$. 
+Therefore, $\theta_{total}$  must be less than $20^\circ$. 
+That way the bent beam line can be straightened out using a standard dipole, 
+which is readily available at the AWA. 
+It is also safer to design away from the limit of the equipment. 
+Therefore a bend angle less than $20^\circ$ is preferred and allows room for tolerance errors. 
+This has the added benefit of reducing energy spread. 
+If the beam is bent at a smaller angle, 
+less coherent synchrotron radiation (CSR) and transverse position spread will be induced.
+
+Using the equations from Section~\ref{theory}, 
+tables were made for different plate lengths giving possible gap, angle, and x offset values for comparison. 
+The maximum beam energy was used, \SI{75}{MeV}, and the expected pulsar voltage was used, \SI{35}{kV}.
+Kicker lengths of \SI{0.42}{m}, \SI{0.5}{m}, and \SI{0.6}{m} were investigated.
+From these calculations, the range of possible kicker angles fell between \SI{1}{^\circ} and \SI{3}{^\circ}.
+The longest kicker plate option was investigated further with the understanding that 
+a larger kicker angle would shorten the drift distance between the kicker and septum, 
+and the results for this configuration are shown in Table~\ref{tab:kickparam}.
+A shorter drift would mean less divergence in the beam before it reaches the next focusing optic (quadrupole).
+\begin{table}%[hbt]
+	%   \vspace*{-.5\baselineskip}
+	\begin{center}
+		\caption{Possible kicker parameters for a \SI{75}{MeV} beam,  
+			a pulsar voltage of $\pm$ \SI{35}{kV}, 
+			and kicker plate length of \SI{0.6}{m}.}\label{tab:kickparam}
+		\rowcolors{2}{blue!15}{white}   
+		\begin{tabular}{ccc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Plate Gap [mm]} & \textbf{Angle [deg]}  & \textbf{X Offset [mm]} \\ 
+			\midrule
+			20 & 3.2   & 16.7    \\ %[3pt]
+			25 & 2.57  & 13.4  \\ %[3pt]
+			30 & 2.14  & 11.1 \\		 
+			35 & 1.83  & 9.6	  \\
+			40 & 1.6   & 8.4		 \\
+			45 & 1.43  & 7.4      \\
+			50 & 1.28  & 6.7   \\ 
+			\bottomrule
+		\end{tabular}	
+	\end{center}
+\end{table}
+
+Next simulations were done to give an estimation of the beam size at the entrance and exit of the kicker.
+Typical operating conditions at the AWA were used: accelerating cavities on crest, buck focusing at \SI{500}{A}, 
+matching solenoid at \SI{255}{A}, and quadrupoles nearly in a 1:2:1 configuration with \SI{1.7}{A} and \SI{-3.3}{A}.
+These are not optimized running conditions, and give a good upper bound for how the beam will behave before tuning.
+An angle of \SI{2}{^\circ} was chosen, as a reasonable starting point based on the values in Table~\ref{tab:kickparam}. 
+\begin{figure}
+	\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=0.48\textwidth]{scatter_kicker_entrance}%
+			\includegraphics[width=0.48\textwidth]{scatter_kicker_exit}};
+		\node[fill=white, inner sep=2pt] (txt2) at (6.2,-3.8) {X [mm]};
+		\node[fill=white, inner sep=2pt] (txt2) at (-5,-3.8) {X [mm]};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Simulation of the transverse size of a \SI{40}{nC} 
+		beam at the entrance and exit of proposed kicker configuration.}
+	\label{fig:beamsizekicker}
+\end{figure}  
+The resulting beam sizes were about \SI{15}{mm} to \SI{19}{mm} as shown in Figure~\ref{fig:beamsizekicker}. 
+This requires that the kicker gap be comfortably larger than \SI{20}{mm}, 
+and have room for the beam centroid deflection that the kicker will cause.
+The gap needed to be large enough to allow the full width of the beam to pass through while allowing extra room
+for the transverse offset of the beam as it exits the kicker. 
+
+At this point, it was clear the gap needed to be larger than \SI{30}{mm}, 
+due to the beam size at \SI{40}{nC}. Around this time, 
+it was also learned that the maximum pulsar voltage was $\pm$ \SI{30}{kV},
+not $\pm$ \SI{35}{kV} as expected. 
+These two factors would drive the possible kick angle below \SI{2}{^\circ}, 
+if the kicker plates remained the same length.
+The next question was whether to push for a larger angle by elongating the kicker plates, 
+or whether plate gap values at \SI{40}{mm} and above were sufficient, see Table~\ref{tab:kickparam}.
+Additional mechanical constraints between the kicker and septum were considered. 
+One beam pipe will connect the two and the deflected and undeflected 
+beams must travel in the same pipe until reaching the septum.
+After the septum, the two beams will separate into their own beam pipes.
+This connection piece before the split, is a custom vacuum chamber designed at 
+AWA by Scott Doran, and ordered from MDC Vacuum Products. 
+The large chamber requires more vacuum pumping than other areas, 
+which could complicate installation if the chamber were too long. 
+In this regard, a larger angle from the kicker would help by shortening the pipe length between the kicker and septum.
+Therefore, it was decided to elongate the kicker plates to accommodate the larger gap width and still achieve \SI{2}{^\circ}.
+\begin{table}%[h!]
+	\begin{center}
+		\caption{Mechanical constraints for TBA beam line.}
+		\label{tab:mechanical}
+		\rowcolors{2}{blue!10}{white}   
+		\begin{tabular}{lc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Simulation Parameter} 	&  \textbf{Value} \\ 
+			\midrule
+			Distance between kicker and septum	&  \SI{1}{m} \\
+			Distance between deflected/undeflected beam pipe in septum	& \SI{100}{mm} \\
+			Distance between parallel drive lines	& \SI{0.5}{m} \\
+			Beam Energy 				& \SI{65}{MV}\\ 
+			Linac Voltages 				& $24-25$\SI{}{MV} \\
+			Kicker Angle				& $-2^\circ$ \\
+			Septum Angle				& $-15^\circ$\\ 
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+
+After a discussion on fabrication techniques and the mechanical constraints in Table~\ref{tab:mechanical}, 
+it was noted that the maximum kicker plate length could be \SI{1}{m}. 
+It was also determined from measurements in Chapter~\ref{chp:exp}, 
+that the beam energy in the TBA configuration is closer to \SI{65}{MeV}, 
+rather than the theoretical maximum of \SI{75}{MeV}.
+This is a results of asymmetries in the cavities and the distribution of power
+between the witness and drive lines.
+A new table of voltages and angles were calculated. At this plate length, 
+a gap width of \SI{40}{mm} provided roughly \SI{2}{^\circ} of kick again. 
+This angle would satisfy the one inch pipe inner diameter spacing in the septum as well. 
+
+For a length of \SI{1}{m}, and gap of \SI{40}{mm}, 
+several beam energy and angle scenarios were considered.
+As a contingency plan, it was important to consider if the 
+beam energy could be lowered to still achieve the desired 
+angle and x offset required in the TBA beam line. 
+In other words, if the kicker were unable to deliver a \SI{2}{^\circ}
+kick for a \SI{65}{MeV}, could the energy be lowered to still achieve
+a fully staged TBA demonstration. 
+With the pulsar output being variable between 18 and 30 kV,
+several feasible options were calculated using the equations in Section~\ref{theory}, 
+and are shown in Figures~\ref{fig:kickerangles} and~\ref{fig:kickeroffset}.
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width=0.65\textwidth]{AngleVsEnergy}
+		\caption{Calculated angle of deflection for \SI{1}{m} long 
+			kicker with a gap of \SI{40}{mm} for several beam energies. The target angle is $2^\circ$.}
+		\label{fig:kickerangles}
+	\end{center}
+\end{figure}
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width=0.65\textwidth]{XoffsetVsEnergy}
+		\caption{Calculated x offset of the beam after traveling
+			through the \SI{1}{m} long kicker with a gap of \SI{40}{mm}.
+			The target x offset is about \SI{20}{mm}.}
+		\label{fig:kickeroffset}
+	\end{center}
+\end{figure}
+As a double check on the first order calculations in Figures~\ref{fig:kickerangles} and~\ref{fig:kickeroffset}, 
+a PIC simulation was done to estimate the beam 
+trajectory in the kicker and septum. 
+This work includes RF cavities and space charge effects.
+The two estimates match within reason, see Figure~\ref{fig:beamtraj}. 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.65\textwidth]{tba_trajectory}
+		\caption{Simulation of the transverse offset of a \SI{65}{MeV} beam as 
+			it travels through the proposed TBA beam line. 
+			Beam is traveling right to left in this simulation. 
+			Notice the x offset at the exit of the kicker (\SI{17.5}{m}), 
+			is nearly \SI{20}{mm} as predicted in Figure~\ref{fig:kickeroffset}.}
+		\label{fig:beamtraj}
+	\end{center}
+\end{figure}
+
+\Section{Preliminary Kicker Tests}
+
+After the design of the kicker was finalized, fabrication began at ANL.
+The copper plates and ceramic brackets were fabricated on site at the ANL shops.
+High voltage (HV) feedthroughs and cables were purchased from FID GmbH. 
+In order to test that the fabrication of the kicker was sound, members of the 
+Advanced Photon Source (APS) electronics groups graciously helped perform an 
+out of vacuum AC high voltage test. Afterwards they also helped perform and 
+analyze a Time Domain Reflectometer (TDR) measurement of the kicker plates
+to determine the impedance along the kicker plates, feedthroughs, and cables. 
+\begin{figure*}
+	\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=1\textwidth]{kicker}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-10,0) {Port 1};
+		\node[fill=white, inner sep=2pt] (txt2) at (-5, -5) {Port 3};
+		\node[fill=white, inner sep=2pt] (txt2) at (5.5,6) {Port 2};
+		\node[fill=white, inner sep=2pt] (txt2) at (10,1) {Port 4};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{CAD drawing of AWA kicker design, courtesy of Scott Doran from AWA.
+		Ports are connected the HV cables purchased from FID GmbH. 
+		Power is supplied by a pulsar also fabricated by FID GmbH and borrowed from the APS Electronics group.}
+\end{figure*}\label{fig:AWAkicker}
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{FID_feedthrough1}\includegraphics[width=0.5\textwidth]{FID_feedthrough2}
+		\caption{High voltage feedthrough purchased from FID GmbH. Left, connection to the HV cables.
+			Right, the in vacuum pin that connects to the copper kicker plates.
+			Photos supplied by FID GmBH.}
+		\label{fig:feedthroughs}
+	\end{center}
+\end{figure}
+\iffalse
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{kicker_plates}
+	\caption{Inside of kicker vacuum chamber after assembly. }
+	\label{fig:kicker-plates}
+\end{figure}
+\fi
+
+\Subsection{High Voltage Kicker Test}
+Two HV tests were performed at the APS. This was done to ensure the electrical connection 
+between the feedthroughs and kicker plates were free of shorts. 
+The first test consisted of HV applied in increments to ports 3 and 4 on the kicker.  
+Ports 1 and 2 were shorted to ground. There was no leakage current up to \SI{8}{kV} RMS.
+The second test reversed the setup with 3 and 4 grounded and ports 1 and 2 exposed. 
+There was no leakage current up to \SI{9}{kV} RMS, which was the maximum voltage of the test equipment.
+Figure~\ref{fig:AWAHVkicker} shows the connection and location of the kicker in the APS Faraday cage.
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width=\textwidth]{kicker1}
+		\caption{High voltage test cage at the APS. 
+			The kicker was grounded on one side and exposed to high voltage AC power on the other. 
+			The Faraday cage was closed during testing. }
+		\label{fig:AWAHVkicker}
+	\end{center}
+\end{figure}
+
+
+\Subsection{Time Domain Reflectometer Test}
+After the HV test was completed, a Time Domain Reflectometer (TDR) measurement was preformed at the APS~\cite{TDR}, 
+with the help of C.~Y.~Yao, A.~Brill, X.~Sun and C.~Jing.
+This technique measures reflections along a conductor and gives information about discontinuities in the line being measured. 
+This information was used to determine the impedance along the cables, feedthroughs, and plates of the kicker. 
+Ideally, the response would be \SI{50}{\ohm} to reduce reflections and resulting power loss. 
+The measurements, plotted by C.~Y.~Yao in Figure~\ref{fig:TDR}, show a larger impedance at the feedthrough locations.
+Due to resource and time constraints, it was a goal to use off the shelf parts where possible in fabrication of the kicker.
+Therefore, the feedthrough mismatch is expected because they were not specifically designed to couple to the plate geometry.
+A substantial amount of time and resources were spent to minimize reflections for the APS kickers plotted in Figure~\ref{fig:TDR}.
+However, that kicker still deviates from \SI{50}{\ohm} near the feedthroughs.
+Given this comparison to the kickers fabricated at the APS, C.~Y.~Yao advised the mismatch observed was not dangerous to 
+the pulsar or cables that would drive the kicker.  
+The only negative result is the reduced amount of voltage supplied to the plates, and therefore, a reduction in the kick given to the beam.
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{TDR_AWA_kicker}
+		
+		(a) TDR single mode measurements of the AWA kicker.
+	\end{center}
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{TDR_APS_kicker}
+		
+		(b) TDR single mode measurements of an APS kicker.
+		\caption{TDR measurements of the impedance of AWA and APS kickers, plotted by C.~Y.~Yao.
+			Single mode refers to the orientation of the measurement. 
+			Only one port of the kicker is driven and measured at a time. }\label{fig:TDR}		
+	\end{center}
+	
+\end{figure}
+
+
+\Section{Measurement of Beam Deflection}
+
+Once the kicker was installed, measurements were done to verify it worked as designed with beam.  
+The voltage was scanned to check for linearity of the beam offset with voltage.  
+The beam size and angle of deflection were measured and compared to simulation results.  
+Details of the setup, and results of the studies follow.
+
+The kicker was installed in the AWA drive beam line approximately \SI{16.5}{m} downstream of the cathode.
+The HV pulsar was located on the roof of the bunker.
+During the beam tests the accelerator was operated in TBA-like conditions with machine settings based on simulations 
+done to optimize for future TBA runs, see Table~\ref{tab:krunparam}.
+\begin{table}%[h!]
+	\begin{center}
+		\caption{Beam line configuration when kicker was tested.}
+		\label{tab:krunparam}
+		\rowcolors{2}{blue!10}{white}   
+		\begin{tabular}{lc}
+			\toprule
+			\toprule
+			%\rowcolor{blue!30} 
+			\textbf{Parameter} 		&  \textbf{Value} \\ 
+			\midrule
+			Charge					&  \SI{30}{nC} \\
+			Laser dimension in x    &  \SI{19}{mm} \\
+			Laser dimension in y    &  \SI{16}{mm} \\
+			Buck Focusing Solenoid	& \SI{550}{A} \\
+			Matching Solenoid		& \SI{200}{A} \\
+			Quad 1					& \SI{0}{A}  \\
+			Quad 2					& \SI{-1.53}{A}  \\
+			Quad 3					& \SI{3.08}{A}  \\
+			Quad 4					& \SI{-1.53}{A}  \\
+			Cavity phases   		& $-20^\circ$ \\
+			Beam Energy 				& \SI{65}{MeV}\\ 
+			\bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+All accelerating cavities were operated at \SI{-20}{^\circ} off crest to minimize energy spread.
+A simplified experimental setup is shown in Figure~\ref{fig:kyag}.
+\begin{figure*}
+	\begin{center}		
+		\begin{tikzpicture}[scale=0.7]
+		\node (fig1) at (0,0)
+		{\includegraphics[width=0.5\textwidth]{kicker_yag}};
+		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,2) {Kicker};
+		\node[fill=white, inner sep=2pt] (txt2) at (-1.5,-1.5) {\SI{1}{m}};
+		\node[fill=white, inner sep=2pt] (txt2) at (6.5,-0.75) {Beam Direction};
+		\node[fill=white, inner sep=2pt] (txt2) at (3,2) {YAG Screen};
+		\node[fill=white, inner sep=2pt] (txt2) at (1.5,-1.5) {\SI{0.28}{m}};
+		\end{tikzpicture}
+	\end{center} 
+	\caption{Simplified drawing of kicker and YAG screen where beam size and offset data 
+		was taken. This experimental setup was used to calculate 
+		the angle provided by the kicker for a \SI{30}{nC} beam at \SI{65}{MeV}.}
+	\label{fig:kyag}
+\end{figure*}
+The centroid position of the beam was measured for several kicker voltages, and a linear fit was performed.
+The $R$ value for the fit in Figure~\ref{fig:linear} is 0.99704. This shows that the beam offset 
+is fairly linear with respect to kicker voltage. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{kicker_linearity}
+	\caption{Measured deflection of beam due to kicker at several voltages.}
+	\label{fig:linear}
+\end{figure}
+
+Using the x offset numbers found in Figure~\ref{fig:linear}, 
+the measured angle vs. first order approximations from Section~\ref{theory} can be compared. 
+Note the x offset seen on the YAG screen is not solely due to the trajectory in the kicker.
+The contributions to the total deflection must be broken into two parts: the deflection of the beam inside the kicker, 
+and the position change when the beam is drifting towards the YAG screen after it exits the kicker.
+The latter part can be approximated using the triangle shown in Figure~\ref{fig:kicker-geometry}.
+Inside the kicker, the trajectory is approximated using Equation~\ref{eq:kx}. 
+Combining these two terms, the equation for the x offset seen during the experiment
+can be written as:
+\begin{equation}
+\Delta x = \Delta x_{kicker} + \Delta x_{drift}\, ,
+\end{equation}
+\begin{equation}
+\Delta x = \left(1-\cos\theta_{k}\right)\rho + L_{drift} \theta_{k}\, ,
+\label{eq:kdata}
+\end{equation}
+where $\rho$ is the bending radius in the kicker, and $L_{drift}$ is \SI{0.28}{m} as shown in Figure~\ref{fig:kyag}.
+Using the small angle approximation, this equation simplifies to:
+\begin{equation}
+\Delta x = \rho - \rho \left(1-\frac{\theta^2}{2}\right) + L_{drift} \theta_{k},
+\end{equation}
+\begin{equation}
+\Delta x = \rho \frac{\theta^2}{2} + L_{drift} \theta_{k}.
+\end{equation}
+Next, $\rho$ is rewritten assuming the the arc length is approximately equal 
+to the length of the kicker plates:
+\begin{equation}
+\Delta x = \frac{L_{kicker}}{\theta_{k}}\frac{\theta_{k}^2}{2} + L_{drift}\theta_{k},
+\end{equation}
+\begin{equation}
+\Delta x = \left(\frac{L_{kicker}}{2}+ L_{drift}\right)\theta_{k},
+\end{equation}
+where the length of the kicker is \SI{1}{m} and the drift is \SI{0.28}{m}:
+\begin{equation}
+\Delta x = \SI{0.78}{m}\,\,\theta_{k}.
+\label{eq:kdx}
+\end{equation}
+The position offset on the YAG screen due to the kicker, $\Delta x$, 
+was measured and the data is shown in Figure~\ref{fig:linear}. 
+Note, the beam centroid location at kicker voltage $=0$, 
+represents the beam location on the YAG screen when the kicker is turned off.
+This is used as a reference point to calculate $\Delta x$ at each voltage value
+(i.e. $\Delta x_i = x_{vi} - x_{v0}$).
+With these $\Delta x$ values, Equation~\ref{eq:kdata} can be rewritten to 
+solve for the experimentally achieved angle $\theta_{k}$.
+
+Next the energy measurement was analyzed to determine the beam energy. 
+The method described in Chapter~\ref{chp:exp} was used, 
+and the current measured to bend the beam \SI{15}{^\circ} was about \SI{9}{A}.
+This corresponds to an energy of about \SI{62}{MeV}. 
+This energy was then used to calculate the ideal angle values vs. kicker voltage.
+The are plotted in Figure~\ref{fig:angles} in comparison 
+to the ideal values for a \SI{65}{MeV} beam. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{kicker_angle_comparison}
+	\caption{Measured angle provided by the kicker at several voltages.  
+		These are compared to 1st order calculations for a \SI{65}{MeV} beam.
+		Smaller angles are expected in the data due to the reflections
+		seen at the feedthroughs in TDR measurements, see Figure~\ref{fig:TDR}.
+		Note the calculated values are also smaller than the 
+		angles predicted in Figure~\ref{fig:kickerangles}, 
+		because the final kicker gap after assembly was \SI{45}{mm}, a little larger
+		than the design value of \SI{40}{mm}}
+	\label{fig:angles}
+\end{figure}
+
+Beam size data on the YAG screen after the kicker was taken, 
+see Figure~\ref{fig:kickerbeamsize} for examples of this data. 
+These measurements were used to calculate the total beam size and 
+centroid location of the beam. A combination fit was used to extract 
+the beam sizes as described in Section~\ref{sec:beamsize}. 
+A Gaussian fit was used for the beam core, and linear fits were used for the tails.
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{yag6_kicker_voltage0}%
+	\includegraphics[width=0.5\textwidth]{yag6_kicker_voltage18}\\
+	\includegraphics[width=0.5\textwidth]{yag6_kicker_voltage20}%
+	\includegraphics[width=0.5\textwidth]{yag6_kicker_voltage22}%
+	\caption{Examples of beam size data taken during kicker test. 
+		Various kicker voltage settings were used and deflection of the beam was observed.}
+	\label{fig:kickerbeamsize}
+\end{figure}
+The kicker slightly increases the beam size in the kicked direction (x), 
+but the large discrepancy in the horizontal and vertical beam size can not be attributed to the kicker alone.
+If the asymmetries were due to the kicker only, they would not be present when the kicker is off.
+Persistence of the asymmetry when the kicker is off (voltage = 0) indicates 
+the source of error is not an intrinsic problem associated with the kicker.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{xybeamsizes_high_charge_kicker_scan_angle_asymmetric}
+	\caption{Beam size data taken during kicker voltage scan. Asymmetry between the x and y beam sizes
+		is present even when the kicker is off at V = 0. This suggests the asymmetry is not
+		caused by the kicker alone. Scans of the gun voltage showed large impact on the beam sizes
+		and is probably the source of the majority of the asymmetry in the x and y dimensions.
+		The gun gradient to get the simulation values shown in this figure was \SI{55}{MV/m}.} 
+	\label{fig:beamsize}
+\end{figure}
+
+There are several possible sources of the asymmetric beam size. 
+These include the initial laser profile (which was not exactly symmetric
+when the data was taken), field strengths in the accelerating cavities, 
+and uncertainties in the quadrupoles strengths.
+The solenoid field is excluded due to a recent measurement of the magnetic field, 
+done by G. Ha and E. Wisniewski at the AWA. 
+To check the laser radius contribution, simulations with symmetric and asymmetric laser cross-sections were done.
+The difference in the x beam size in these two cases was only \SI{0.3}{mm} rms. 
+Therefore, this is not the major contributing factor.
+
+Next, several gradient values in the gun were simulated. 
+This parameter had a strong impact on the beam sizes, with a range of \SI{1.5}{mm} 
+in the x direction and \SI{0.3}{mm} in the y direction.
+It is clear the field strength and asymmetries in the RF field map 
+are strongly affecting the results presented in Figure~\ref{fig:beamsize}.
+The gradient that achieved the agreement seen in Figure~\ref{fig:beamsize} was \SI{55}{MV/m}.
+This is considerably lower than the reported AWA maximum gradient of \SI{85}{MV/m}.
+It is possible that the lower gradient and resulting asymmetric beam size effect is 
+due to a distribution of lower gradients in the cavities. 
+In other words, perhaps the the gradient in the gun is not that low, but rather
+the gradients in the gun and all six linac cavities are slightly lower than expected.
+
+In conclusion, there are several contributing factors to the asymmetries in the beam.
+From simulations, the laser radius mismatch contributes an estimated \SI{0.3}{mm} of difference 
+between the x and y dimensions. Also in simulation, a difference of about \SI{1.5}{mm} 
+is attributed to the gun gradient and asymmetries in the RF fields. 
+This is an unexpected and meaningful result for the AWA, and will inform experiments moving forward.
+Finally, there is a variance of~\SI{0.5}{mm} attributed to the kicker through analysis of the 
+data shown in Figure~\ref{fig:beamsize}.
+Note, these errors are not a major hurdle for TBA experiments, as they can
+be mitigated with precise control of the quadrupoles.
+
+
+\Section{TBA Beam Line}
+
+While the kicker and septum parameters were defined by the constraints discussed above, 
+the optics must be used to address the aperture limits further down stream.
+There were three clear goals TBA beam line configuration: 
+\begin{itemize}
+	\item Achieve 100\% transmission in the PETS
+	\item Achieve the smallest bunch length possible
+	\item Arrange the beam line for quick and easy installation
+\end{itemize}
+
+With the third item partially addressed (see Section~\ref{theory}), 
+it remained to determine if an optics solution exists that can satisfy the 
+first two requirements (transmission and bunch length). 
+In the case of bunch length, there was no set goal, but a clear understanding 
+that a shorter bunch will generate more power in the PETS structures~\cite{recent-tba}. 
+The structure aperture of \SI{17.6}{mm} is roughly three times smaller than the rest of the beam line, 
+care must be taken to achieve good transmission there.
+
+As a first check of the rough design, a point to point matrix calculation was done 
+to determine if the beam size could be maintained near the kicker.
+Next the simulation studies presented in Chapter~\ref{simulations} were used as a  
+base line for the final optimization. The genetic algorithm in \verb|OPAL|
+was used to achieve the optics design required for testing fully staged TBA. 
+Solutions were found that meet the requirements listed above.
+
+
+
+
+
+
+\Section{Summary}
+
+Several design exercises took place to determine the TBA layout at the AWA. 
+A stripline kicker was designed using first principles and simulations. 
+It was fabricated and assembled at ANL with some parts purchased from third party vendors.
+The kickers ability to maintain high voltage was tested with the help of staff members at the APS.
+They also aided  in performing a Time Domain Reflectometer (TDR) measurement to characterize 
+the impedance of the kicker, feedthrough, and cable connections. 
+A mismatch at the connection point between the kicker plates and feedthroughs was discovered.
+While the mismatch reduces the available voltage between the plates, it is not a danger to 
+the equipment or beam. After the two outside vacuum tests, the kicker was installed on 
+the AWA drive line. It was tested with \SI{30}{nC} beams. 
+The beam deflection and angle due to the kicker were measured and 
+compared to first order, and showed that the kicker performance meets beam dynamics specifications. 
+The remainder of the beam line is awaiting installation. 
+
+Further design work included determination of beam line input parameter settings (incorporating 
+mechanical and hardware constraints) that achieve beam transmission through the power extractor (PETS).
+Initially, a point to point matrix calculation was done to determine if the 
+beam size entering the first four quadrupoles could be maintained near the kicker.
+This exercise resulted in determining that the field strength needed for a point to point beam transfer is \SI{\pm 4.14}{T/m}, 
+which is well below the hardware limit of \SI{\pm9}{T/m}. 
+Next, a beam line optimization was done using the built in genetic algorithm in \verb|OPAL|.  
+Six design variables and five objectives were used. 
+The results are plotted, and confirm the beam line geometry can deliver 
+a \SI{40}{nC} beam to the PETS location with 100\% transmission.
+Future work includes checking the optimization results for the full beam line against beam measurements.  
+This requires that the remaining hardware be installed.  
+It is expected that the design work presented will enable successful beam transport through the new beam line, 
+and that in turn will enable demonstration of fully independent staging for a two-beam acceleration scheme. 
+
+
+
+
+
+
+% If you have acknowledgments, this puts in the proper section head.
+\begin{acknowledgments}
+We gratefully acknowledge the computing resources provided on Bebop, 
+a high-performance computing cluster operated by the Laboratory Computing Resource Center at Argonne National Laboratory.
+
+\end{acknowledgments}
+
+% Create the reference section using BibTeX:
+\bibliography{kicker}
+
+\end{document}
+%
+% ****** End of file apstemplate.tex ******
+
